@@ -1,0 +1,32 @@
+HOLDOUT (single use). train rows 10734 holdout rows 1770 days 66
+full label (incl already-empty at 7:00)
+none(const)    AUC 0.500 brier 0.432 | net/day $    0.0 stops/day 0.00 caught/day 0.00 (stockouts/day 11.58)
+rate           AUC 0.500 brier 0.274 | net/day $    0.0 stops/day 0.00 caught/day 0.00 (stockouts/day 11.58)
+rule b7<=2     AUC 0.795 brier 0.179 | net/day $  297.9 stops/day 6.12 caught/day 6.03 (stockouts/day 11.58)
+rule fill<.15  AUC 0.821 brier 0.158 | net/day $  300.0 stops/day 6.55 caught/day 6.24 (stockouts/day 11.58)
+logit          AUC 0.950 brier 0.089 | net/day $  321.7 stops/day 7.33 caught/day 6.83 (stockouts/day 11.58)
+gbm            AUC 0.961 brier 0.081 | net/day $  319.7 stops/day 7.21 caught/day 6.76 (stockouts/day 11.58)
+gbm noSid      AUC 0.955 brier 0.085 | net/day $  322.1 stops/day 7.29 caught/day 6.82 (stockouts/day 11.58)
+actionable (b7>0, empty at 8/9)
+none(const)    AUC 0.500 brier 0.319 | net/day $    0.0 stops/day 0.00 caught/day 0.00 (stockouts/day 7.14)
+rate           AUC 0.500 brier 0.234 | net/day $    0.0 stops/day 0.00 caught/day 0.00 (stockouts/day 7.14)
+rule b7<=2     AUC 0.670 brier 0.213 | net/day $  119.8 stops/day 2.56 caught/day 2.47 (stockouts/day 7.14)
+rule fill<.15  AUC 0.719 brier 0.187 | net/day $  148.9 stops/day 3.74 caught/day 3.32 (stockouts/day 7.14)
+logit          AUC 0.919 brier 0.106 | net/day $  197.7 stops/day 6.41 caught/day 5.05 (stockouts/day 7.14)
+gbm            AUC 0.936 brier 0.097 | net/day $  206.8 stops/day 6.32 caught/day 5.11 (stockouts/day 7.14)
+gbm noSid      AUC 0.929 brier 0.101 | net/day $  201.4 stops/day 6.32 caught/day 5.05 (stockouts/day 7.14)
+                mean  count
+bin                        
+(-0.001, 0.1]  0.022    739
+(0.1, 0.2]     0.216    111
+(0.2, 0.3]     0.359     92
+(0.3, 0.44]    0.500     74
+(0.44, 0.6]    0.515    101
+(0.6, 0.8]     0.794    194
+(0.8, 1.0]     0.934    166
+            auc      rate
+month                    
+7      0.929389  0.314115
+8      0.936556  0.371429
+9      0.942648  0.277457
+offline rows excluded (no 7am reading): (1770, 23)

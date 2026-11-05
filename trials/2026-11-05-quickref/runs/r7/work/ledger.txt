@@ -1,0 +1,4 @@
+Scored/looked-at runs:
+1. dev logistic regression, target <=2 bikes in window, train<2026, test 2026H1: AUC 0.65, 14 positives.
+2. holdout 2026Q3, one look, base rate only: 2744 station-days, 1 stockout (0 bikes), 12 with <=2.
+No model selection was done. Holdout is spent.

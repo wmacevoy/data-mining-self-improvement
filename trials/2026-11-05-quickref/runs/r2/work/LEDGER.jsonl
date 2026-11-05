@@ -1,0 +1,12 @@
+{"split": "train<=2025 val2026H1", "name": "persist: b_last<=3", "n": 4426, "rate": 0.21260732037957525, "auc": 0.6548563221457682, "brier": 0.15137821961138725, "cost_day": 391.76795580110496, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "station_28d_rate", "n": 4426, "rate": 0.21260732037957525, "auc": 0.761353881901637, "brier": 0.14230726820305636, "cost_day": 446.4640883977901, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "const_train_rate", "n": 4426, "rate": 0.21260732037957525, "auc": 0.5, "brier": 0.16796111871856176, "cost_day": 467.90055248618785, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "HGB seed0", "n": 4426, "rate": 0.21260732037957525, "auc": 0.9549292016643366, "brier": 0.0666799951738029, "cost_day": 336.1878453038674, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "HGB seed1", "n": 4426, "rate": 0.21260732037957525, "auc": 0.9549292016643366, "brier": 0.0666799951738029, "cost_day": 336.1878453038674, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "HGB seed2", "n": 4426, "rate": 0.21260732037957525, "auc": 0.9549292016643366, "brier": 0.0666799951738029, "cost_day": 336.1878453038674, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "HGB seed3", "n": 4426, "rate": 0.21260732037957525, "auc": 0.9549292016643366, "brier": 0.0666799951738029, "cost_day": 336.1878453038674, "cost_nothing_day": 467.90055248618785}
+{"split": "train<=2025 val2026H1", "name": "HGB seed4", "n": 4426, "rate": 0.21260732037957525, "auc": 0.9549292016643366, "brier": 0.0666799951738029, "cost_day": 336.1878453038674, "cost_nothing_day": 467.90055248618785}
+{"note": "val slices+bootstrap+thr sweep(3 thresholds)"}
+{"split": "HOLDOUT 2026Q3 first and only look", "name": "HGB final, holdout 2026Q3 (look #1)", "n": 2183, "rate": 0.3238662391204764, "auc": 0.958235588367199, "brier": 0.07758379978992853, "cost_day": 480.8695652173913, "cost_nothing_day": 691.6304347826087}
+{"split": "HOLDOUT", "name": "persist b_last<=3", "n": 2183, "rate": 0.3238662391204764, "auc": 0.6363614148871334, "brier": 0.239120476408612, "cost_day": 590.0, "cost_nothing_day": 691.6304347826087}
+{"split": "HOLDOUT", "name": "const dev rate", "n": 2183, "rate": 0.3238662391204764, "auc": 0.5, "brier": 0.2351093237214296, "cost_day": 691.6304347826087, "cost_nothing_day": 691.6304347826087}
