@@ -9,5 +9,5 @@ extra=()
 [ -n "$SANDBOX_CLAUDE_DIR" ] && extra+=(--ro-bind "$SANDBOX_CLAUDE_DIR" "$HOME/.local/share/claude")
 [ -n "$SANDBOX_CREDENTIALS" ] && extra+=(--dir "$HOME/.claude" --ro-bind "$SANDBOX_CREDENTIALS" "$HOME/.claude/.credentials.json")
 exec bwrap --ro-bind /usr /usr --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
-  --ro-bind /etc /etc --proc /proc --dev /dev --tmpfs /tmp --tmpfs /home --dir "$HOME" --bind "$dir" "$dir" \
+  --ro-bind /etc /etc --ro-bind-try /run/resolvconf /run/resolvconf --ro-bind-try /run/systemd/resolve /run/systemd/resolve --proc /proc --dev /dev --tmpfs /tmp --tmpfs /home --dir "$HOME" --bind "$dir" "$dir" \
   "${extra[@]}" --unshare-pid --unshare-ipc --unshare-uts --die-with-parent --chdir "$dir" "$@"
