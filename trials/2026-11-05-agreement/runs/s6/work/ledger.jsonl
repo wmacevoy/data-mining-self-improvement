@@ -1,0 +1,17 @@
+{"split": "val", "name": "yesterday_stockout", "auc": 0.6418789899483128, "brier": 0.2869220607661823, "cost": "90620", "no_action": "95130", "trucks": 749, "caught": 383, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "rate28", "auc": 0.806713274441858, "brier": 0.15168428005284015, "cost": "83380", "no_action": "95130", "trucks": 478, "caught": 343, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "zero_bikes_at_6am", "auc": 0.5473036896877956, "brier": 0.2528401585204756, "cost": "90130", "no_action": "95130", "trucks": 100, "caught": 100, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_all_s0", "auc": 0.932911472740035, "brier": 0.09109651883442768, "cost": "71430", "no_action": "95130", "trucks": 663, "caught": 558, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_all_s1", "auc": 0.932911472740035, "brier": 0.09109651883442768, "cost": "71430", "no_action": "95130", "trucks": 663, "caught": 558, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_all_s2", "auc": 0.932911472740035, "brier": 0.09109651883442768, "cost": "71430", "no_action": "95130", "trucks": 663, "caught": 558, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_weather_hist_s0", "auc": 0.9258237223148567, "brier": 0.09508022572732186, "cost": "71470", "no_action": "95130", "trucks": 718, "caught": 582, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_weather_hist_s1", "auc": 0.9258237223148567, "brier": 0.09508022572732186, "cost": "71470", "no_action": "95130", "trucks": 718, "caught": 582, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_weather_hist_s2", "auc": 0.9258237223148567, "brier": 0.09508022572732186, "cost": "71470", "no_action": "95130", "trucks": 718, "caught": 582, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_hist_s0", "auc": 0.9193470356816864, "brier": 0.09937033438194666, "cost": "72450", "no_action": "95130", "trucks": 675, "caught": 552, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_hist_s1", "auc": 0.9193470356816864, "brier": 0.09937033438194666, "cost": "72450", "no_action": "95130", "trucks": 675, "caught": 552, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_no_hist_s2", "auc": 0.9193470356816864, "brier": 0.09937033438194666, "cost": "72450", "no_action": "95130", "trucks": 675, "caught": 552, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "rule_lowest_fill_top0", "cost": "95130"}
+{"split": "val", "name": "rule_lowest_fill_top4", "cost": "83550"}
+{"split": "val", "name": "rule_lowest_fill_top8", "cost": "82770"}
+{"split": "val", "name": "logit_fill6_b6_cap", "cost": "75210", "no_action": "95130", "trucks": 780, "caught": 568, "stockouts": 1057, "days": 129}
+{"split": "val", "name": "hgb_all_final", "cost": "71430", "no_action": "95130", "trucks": 663, "caught": 558, "stockouts": 1057, "days": 129}

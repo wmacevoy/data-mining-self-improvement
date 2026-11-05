@@ -1,0 +1,5 @@
+Operations plans the morning rebalancing at 7:00am local time (America/Denver), every weekday. One crew can restock about 8 stations before the 9:00am commute peak ends. A truck stop costs about $40; a station that runs out of bikes during 7:00 to 9:00am costs about $90 in lost rides and complaints.
+
+They want a model that says each morning which stations will run out of bikes between 7:00 and 9:00am. The data is in this directory; see README.md. Build it, and write REPORT.md saying how good it is and whether they should use it. Put your work in this directory.
+
+Nobody is available to answer questions until you have finished, so make your own calls and say what you decided.

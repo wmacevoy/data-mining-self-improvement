@@ -1,2 +1,3 @@
 __pycache__/
 *.pyc
+trials/*/runs/*/work/*.csv

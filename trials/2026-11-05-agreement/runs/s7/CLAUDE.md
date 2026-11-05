@@ -1,0 +1,3 @@
+@AGENTS.md
+@AGENTS-DM.md
+@QUICKREF.md

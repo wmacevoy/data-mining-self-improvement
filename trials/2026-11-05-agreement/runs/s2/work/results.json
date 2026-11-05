@@ -1,0 +1,36 @@
+[
+ {
+  "name": "no action",
+  "auc": NaN,
+  "ap": NaN,
+  "cost_per_day": 737.4418604651163
+ },
+ {
+  "name": "baseline: station x month rate",
+  "auc": 0.7854933733218289,
+  "ap": 0.5782573617937583,
+  "cost_per_day": 666.2015503875969
+ },
+ {
+  "name": "baseline: 6am fill (low=risk)",
+  "auc": 0.8509496805266941,
+  "ap": 0.748425530034925,
+  "cost_per_day": 642.3255813953489
+ },
+ {
+  "name": "baseline: yesterday's stockout",
+  "auc": 0.6090776612833865,
+  "ap": 0.3556306566473423,
+  "cost_per_day": 715.4263565891473
+ },
+ {
+  "name": "HGB (5-seed mean)",
+  "auc": 0.9370323385224048,
+  "ap": 0.8684491090824036,
+  "cost_per_day": 554.4186046511628,
+  "auc_seed_range": [
+   0.9370323385224048,
+   0.9370323385224048
+  ]
+ }
+]

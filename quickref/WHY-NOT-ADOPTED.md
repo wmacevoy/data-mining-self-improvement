@@ -6,7 +6,7 @@ Decided by Warren MacEvoy, 2026-11-05: DM1 does not add a quick reference of its
 
 **What was observed.**
 - Against SE1's quick reference alone, it moved behaviour nearly as far as the full text: intervals, counts of things tried, slices, and holdout use (`../trials/2026-11-05-quickref/RESULTS.md`). It did not make the answers more correct.
-- Against what an adopter already loads, the agreements and SE1's quick reference, it added nothing visible: 19.0 of 22 behaviours per run without it, 18.5 with it, against a pre-registered bar of 1.5 above, at about $0.08 more per run. That trial's record is kept by the owner and not published here.
+- Against what an adopter already loads, the agreements and SE1's quick reference, it added nothing visible: 19.0 of 22 behaviours per run without it, 18.5 with it, against a pre-registered bar of 1.5 above, at about $0.08 more per run (`../trials/2026-11-05-agreement/RESULTS.md`).
 
 So the agreement, not a reference, is what changes the work, and about 8,000 words at every start buys no behaviour these trials could see.
 
