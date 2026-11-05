@@ -1,0 +1,902 @@
+{
+ "x1": {
+  "1": {
+   "score": "yes",
+   "evidence": "build.py: features from local hours <7. Its zone is off one hour, so its 06:00 is the true 07:00 reading, still not after 7:00",
+   "close": true
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: min_bikes_today, trips_today, visits_today 'summarise the day being predicted... leakage'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: tr date<2026-01-01, va >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py run once (transcript:399; earlier attempt failed at import); plus a file-structure peek",
+   "close": false
+  },
+  "5": {
+   "score": "yes",
+   "evidence": "REPORT: 'explored the training period and the clock question on pre-holdout data only'. Says how, no mention of reach",
+   "close": true
+  },
+  "6": {
+   "score": "no",
+   "evidence": "build.py merge_asof by effective date; no uniqueness or row-count check on the join",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'OFFLINE readings are not stockouts'; label needs status OK",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "Only 'Why readings go missing... unknown', about S025-S030 row gaps, not OFFLINE",
+   "close": true
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: '-999 weather sentinel (184 rows) is set to missing'",
+   "close": false
+  },
+  "10": {
+   "score": "no",
+   "evidence": "build.py tz_convert UTC to America/Los_Angeles: DST-aware but wrong zone; status starts 07:00 UTC Jan 1 and holdout 06:00 UTC Jul 1, both Denver midnight, so window is true 8-10am",
+   "close": true
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table: do nothing, tuned b6 rule, 28-day rate on holdout",
+   "close": false
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '95% bootstrap over days: $309-$361'",
+   "close": false
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'One configuration... no tuning'",
+   "close": false
+  },
+  "14": {
+   "score": "yes",
+   "evidence": "S025-S030 (East) vs others AUC in REPORT; n only in final.py output; East not named",
+   "close": true
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: 8-stop rule with p>40/90, quarter cost table",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "'Verdict: yes, use it'; agent decides, no bar and no named decider",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "REPORT: 'Run each' of three scripts; final.py alone rebuilds the holdout numbers from raw, validation numbers need the others",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Decisions and assumptions (K4s - please confirm)'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: S025-S030 'about 30% fewer rows'; stockouts between readings invisible",
+   "close": false
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.968; saves about $336/day vs nothing (95% CI $309-361), $26/day over simple rule",
+  "recommendation": "Yes, rank stations for the crew, after confirming clock and crew timing; shadow trial"
+ },
+ "x2": {
+  "1": {
+   "score": "yes",
+   "evidence": "prep.py: readings up to 06:00 local plus past days' outcomes",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'end-of-day totals that include the outcome window... leak the answer'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: four forward-chained quarterly folds",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py run once (transcript:287); holdout loaded earlier to inspect (transcript:74)",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT only: 'looked at once', 'now spent'",
+   "close": false
+  },
+  "6": {
+   "score": "no",
+   "evidence": "prep.py merge_asof by effective date; no check",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: OFFLINE 'not counted as stockouts and were set to missing'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT: 'a dead controller'; 283 days dropped, no question of who is lost",
+   "close": false
+  },
+  "9": {
+   "score": "no",
+   "evidence": "Weather is not a model input, so never exposed, but -999 is neither noticed nor mentioned",
+   "close": true
+  },
+  "10": {
+   "score": "yes",
+   "evidence": "prep.py: tz_localize UTC, tz_convert America/Denver",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table: best simple rule, station average, oracle on holdout",
+   "close": false
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '+293 (95% CI 253-327)'",
+   "close": false
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'about 30 scored configurations... and one holdout run'",
+   "close": false
+  },
+  "14": {
+   "score": "yes",
+   "evidence": "final.py prints district, n, AUC in transcript; REPORT gives AUC range 0.91-0.93 without n",
+   "close": true
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: net $/day, 7.95 stops/day, 8-stop cap",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "'Recommendation: use it'; Operations asked to confirm facts, not to decide",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "'Run each' of three files; final.py alone rebuilds holdout numbers from raw, fold numbers read a pickle",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Decided without asking (each is an assumption; please confirm)'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: days with all readings offline dropped (283 of 16,380); stockouts between readings missed",
+   "close": true
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.93; +$293/day vs no restocking (95% CI 253-327)",
+  "recommendation": "Use as ranking tool on a trial basis; shadow 2-4 weeks"
+ },
+ "x3": {
+  "1": {
+   "score": "yes",
+   "evidence": "prep.py: readings at or before 06:00, yesterday's afternoon min, 06:00 weather",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'contains same-day outcomes... which are leakage'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "dev.py: tr <2026-01-01, va >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py run once (transcript:330), holdout inspected earlier (transcript:202)",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT only: 'Holdout looked at once', 'now spent'",
+   "close": false
+  },
+  "6": {
+   "score": "no",
+   "evidence": "prep.py merge_asof by date; assert len(d)==len(lab) sits before the stations join, so it does not check it",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: OFFLINE 'treated as unknown and never as stockouts'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT reports counts dropped (196, 49); no missingness concern",
+   "close": false
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: '-999 values (184 rows) are treated as missing'",
+   "close": false
+  },
+  "10": {
+   "score": "yes",
+   "evidence": "prep.py: TZ America/Denver via tz_convert from UTC",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table: none, yesterday, 28-day rate, low-count rule, logistic",
+   "close": false
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '95% bootstrap interval over days: $263 to $325'",
+   "close": false
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'Models tried: 6 on validation, 6 on the holdout'",
+   "close": false
+  },
+  "14": {
+   "score": "yes",
+   "evidence": "final.py prints district, n, rate, AUC in transcript; REPORT 'AUC .91 to .93' without n",
+   "close": true
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: cost/day, 8 stops, p>0.44, 13 stockouts vs 8 stops",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "REPORT: 'The bar I set before the holdout...' appears only after the score; no earlier statement in transcript, and the agent decides",
+   "close": true
+  },
+  "17": {
+   "score": "no",
+   "evidence": "final.py reads dev.pkl, built by explore.py; not one command from raw",
+   "close": false
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Decisions I made'; 'Restock is assumed to prevent the stockout'; K4 note",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: station-days with no OK reading dropped; label undercounts between readings",
+   "close": true
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.93; saves about $294/day vs no action (95% CI $263-325)",
+  "recommendation": "Use as ranking tool for 8 stops; run alongside current practice 2-4 weeks"
+ },
+ "x4": {
+  "1": {
+   "score": "yes",
+   "evidence": "build.py: readings to 06:00, trailing rates shifted, 06:00 weather",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'same-day values, which are only known after the morning, so they leak the answer'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: tr <2026-04-01, va Apr-Jun 2026",
+   "close": false
+  },
+  "4": {
+   "score": "no",
+   "evidence": "transcript:273 model.py test, then oracle on holdout; transcript:297 refit, calibration and precision on holdout. REPORT says 'touched once'. Two if the label-only oracle is not counted",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT only: 'touched once, after choosing features'; build() loads holdout into the dev table",
+   "close": false
+  },
+  "6": {
+   "score": "no",
+   "evidence": "build.py merge_asof, 'drop_duplicates' on district; no check",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'OFFLINE readings report 0 bikes... not counted'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT: 'dead controller'; unknown labels dropped (~6%), no question about them",
+   "close": false
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: 'Weather -999 is a missing-value sentinel'",
+   "close": false
+  },
+  "10": {
+   "score": "yes",
+   "evidence": "build.py: UTC to America/Denver",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table: do nothing, 28-day rate, low-bikes rule, oracle",
+   "close": false
+  },
+  "12": {
+   "score": "no",
+   "evidence": "No interval or seed spread in REPORT",
+   "close": false
+  },
+  "13": {
+   "score": "no",
+   "evidence": "No count in REPORT, though three GBMs and four baselines ran",
+   "close": false
+  },
+  "14": {
+   "score": "no",
+   "evidence": "No district or East slice; only a winter backtest",
+   "close": false
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: $/day, 8-station cap, picks/day",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "'Recommendation: use it'; questions for Operations are factual, no bar",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "model.py test rebuilds the main table from raw, but oracle, calibration and winter numbers came from unkept heredocs; REPORT documents only predict.py",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'K4 assumption, not tested'; 'Decisions I made'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: 4.8% missing 06:00, ~6% labels unknown, log stops 2026-06-30",
+   "close": false
+  },
+  "holdout_evaluations": 3,
+  "headline_score": "Holdout AUC 0.95; about $804/day vs $1,117 for nothing, saves about $313/day; no interval",
+  "recommendation": "Use as an advisory ranking, not a proven money-saver"
+ },
+ "x5": {
+  "1": {
+   "score": "yes",
+   "evidence": "prep.py: 06:00 and 05:00 readings, weather to 06:00",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'same-day values... not known at 7:00. They would leak the answer'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: tr <2026-01-01, va >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py scored once (transcript:415); first attempt crashed at import before reading; nrows=3 peek (transcript:248)",
+   "close": false
+  },
+  "5": {
+   "score": "yes",
+   "evidence": "REPORT: 'read once, by final.py, which refuses to run again'; HOLDOUT_SPENT guard in code",
+   "close": false
+  },
+  "6": {
+   "score": "no",
+   "evidence": "prep.py merge_asof on effective_from; no check",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'OFFLINE rows show 0 bikes... They are not stockouts'",
+   "close": false
+  },
+  "8": {
+   "score": "yes",
+   "evidence": "REPORT: 'Stations that are OFFLINE all morning are invisible to it'; 11% dropped. Names what is lost, not why",
+   "close": true
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: '-999... is a sentinel and is treated as missing'",
+   "close": false
+  },
+  "10": {
+   "score": "no",
+   "evidence": "prep.py tz_convert UTC to America/New_York: DST-aware but wrong zone; series start fits Denver, so window is true 5-7am",
+   "close": true
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT: nothing, yesterday's stockout, b6<=2 on holdout",
+   "close": false
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '95% interval $70-125'",
+   "close": false
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'I tried 7 configurations... That is the full count'",
+   "close": false
+  },
+  "14": {
+   "score": "yes",
+   "evidence": "final.py prints district, n, rate, mean p; REPORT names Central, East, North direction without n",
+   "close": true
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: restock above 0.44, at most 8; cost/day, about 4 stops/day",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "'Use it, as a pilot'; agent decides, no bar or decider",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "prep, model, final in steps; final.py from raw covers holdout but its guard refuses a re-run",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Decisions I made and the assumptions behind them'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: gaps in S025-S030, 212 of 1,971 dropped, restock effect 'not in the data'",
+   "close": false
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.92; about $290/day vs $387 for nothing, saves $97/day (95% CI $70-125)",
+  "recommendation": "Use as a pilot alongside current practice for a few weeks"
+ },
+ "x6": {
+  "1": {
+   "score": "yes",
+   "evidence": "prep.py: local 00-06 only. Capacity is max bikes+docks over the whole file, which includes later readings but is constant per station",
+   "close": true
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'same-day outcomes (min_bikes_today alone scores AUC 0.94...)'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: tr <2026-01-01, va >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py scored once (transcript:356); first attempt failed at import; holdout loaded for capacity check (transcript:297)",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT only: 'used once, after all choices were made', 'untouched'",
+   "close": false
+  },
+  "6": {
+   "score": "yes",
+   "evidence": "transcript:74 st.groupby('station_id').size().value_counts(); REPORT explains stations.csv not joined",
+   "close": false
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: OFFLINE rows 'are not stockouts'",
+   "close": false
+  },
+  "8": {
+   "score": "yes",
+   "evidence": "REPORT: 'If a station goes offline during 7-9, we won't know'. Names what is lost, not why",
+   "close": true
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: 'Weather -999 is a missing sentinel, set to NaN (184 rows)'",
+   "close": false
+  },
+  "10": {
+   "score": "yes",
+   "evidence": "prep.py: UTC to America/Denver",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table: nothing, station rate, b6<=3 rule",
+   "close": false
+  },
+  "12": {
+   "score": "no",
+   "evidence": "No interval or seed spread",
+   "close": false
+  },
+  "13": {
+   "score": "no",
+   "evidence": "No count in REPORT",
+   "close": false
+  },
+  "14": {
+   "score": "no",
+   "evidence": "Only by month; no district or East",
+   "close": false
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: cost table, top 8, break-even, k=12 comparison",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "'Recommendation: use it'; agent decides",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "REPORT: final.py after model.py; final reads d.pkl",
+   "close": false
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'I assumed a stop prevents 100%'; 'inferred, not confirmed'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: 1.7% station-days dropped; 'the data cannot tell me' stop effect",
+   "close": true
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.96; $55.8k vs $76.2k for nothing over 92 days, about $220/day; no interval",
+  "recommendation": "Use as a ranked list, with a pilot on whether a restock prevents stockouts"
+ },
+ "x7": {
+  "1": {
+   "score": "yes",
+   "evidence": "model.py features: 5:00 and 6:00 counts, prior evening, yesterday, weather to 6:00",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'same-day values, which you don't know at 7:00'",
+   "close": false
+  },
+  "3": {
+   "score": "no",
+   "evidence": "No development split: model.py trains to 2026-06-30 and scores only the holdout; that split is time-ordered",
+   "close": true
+  },
+  "4": {
+   "score": "no",
+   "evidence": "Holdout outcome counted at transcript:382 and 428 before model.py (transcript:470). One if only model scoring counts; REPORT says 'untouched'",
+   "close": true
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT: 'untouched 2026-Q3 holdout', which is not so",
+   "close": false
+  },
+  "6": {
+   "score": "yes",
+   "evidence": "transcript:74 st.groupby('station_id').size().value_counts(); REPORT: S001 19, 23, 21, not joined",
+   "close": false
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'I excluded OFFLINE readings from the target'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT: 'a comms problem', separate alert; checks repeat rate only",
+   "close": false
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: '-999 sentinel values (184 rows). I set them to missing'",
+   "close": false
+  },
+  "10": {
+   "score": "no",
+   "evidence": "load.py: ts treated as standard time plus 1h in DST; ts is UTC",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT: never visit $0 vs 8 stops about $21,000, and AP vs base rate on holdout",
+   "close": true
+  },
+  "12": {
+   "score": "no",
+   "evidence": "No interval or seed spread",
+   "close": false
+  },
+  "13": {
+   "score": "no",
+   "evidence": "Two targets shown; 'Not done: hyperparameter tuning'; no stated count",
+   "close": true
+  },
+  "14": {
+   "score": "no",
+   "evidence": "No district or East slice",
+   "close": false
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: break-even 44%, 8 stations a day cost",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "Agent decides not to use; no bar or decider, though asks ops about 7:00 jump",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "model.py rebuilds the main table from raw and ran, but other figures came from inline queries; no command documented",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: '[decision]' labels; clock stated as confirmed, word assumption unused",
+   "close": true
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: 'About 12% of station-days are missing at least one 7-9am reading'",
+   "close": false
+  },
+  "holdout_evaluations": 3,
+  "headline_score": "Stockouts about 0.015% of weekday station-days; holdout AUC 0.70 on 1 positive, 0.61 on <=2-bikes proxy",
+  "recommendation": "Do not use a model; nothing to prevent in the window"
+ },
+ "x8": {
+  "1": {
+   "score": "yes",
+   "evidence": "No final model; exploratory logistic uses b6, b5, off6 only",
+   "close": true
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'whole-day aggregates that are not known at 7:00, which is leakage'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "check.py: tr <2026-01-01, te >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "One base-rate look (transcript:333), no model; columns ts and status read earlier (transcript:294)",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT: 'looked at 2026Q3 once... now spent'; ledger records looks, does not protect",
+   "close": true
+  },
+  "6": {
+   "score": "no",
+   "evidence": "No join; REPORT says capacities change and an as-of join would be needed; no key or row check",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'OFFLINE readings always show 0 bikes and are not stockouts'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT: 'a different failure'",
+   "close": false
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: weather has '-999 sentinels' and was not used",
+   "close": true
+  },
+  "10": {
+   "score": "no",
+   "evidence": "prep.py and check.py: ts treated as standard time plus 1h; check.py and holdout use months Apr-Oct; ts is UTC",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT: baseline 'predict no stockouts' costs about $90 a quarter; no real model to set against it",
+   "close": true
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '95% upper bound on the dev rate is about 0.04%'",
+   "close": true
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'only exploratory model was a logistic regression'; ledger lists 2 looks",
+   "close": true
+  },
+  "14": {
+   "score": "no",
+   "evidence": "No slices",
+   "close": false
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: cost table, 40/90 about 44%",
+   "close": false
+  },
+  "16": {
+   "score": "no",
+   "evidence": "Agent decides not to build; no bar or decider for use",
+   "close": false
+  },
+  "17": {
+   "score": "no",
+   "evidence": "REPORT: 'inline queries that I did not keep as scripts'",
+   "close": false
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Clock (assumption, not confirmed)'; 'If this is wrong...'",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: about 0.9% of window readings OFFLINE; only 30 stations covered; row gaps not mentioned",
+   "close": true
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "2 stockouts in 16,225 dev station-days, 1 in 2,744 holdout; 95% upper bound about 0.04%; exploratory AUC 0.65 on <=2-bikes target",
+  "recommendation": "Do not build or use a model; keep current practice"
+ },
+ "x9": {
+  "1": {
+   "score": "yes",
+   "evidence": "prep.py: 'Features use only data with local ts <= 06:00'",
+   "close": false
+  },
+  "2": {
+   "score": "yes",
+   "evidence": "REPORT: 'describe the whole day, including the 7-9am window, so using them would leak'",
+   "close": false
+  },
+  "3": {
+   "score": "yes",
+   "evidence": "model.py: tr <2026-01-01, va >=2026-01-01",
+   "close": false
+  },
+  "4": {
+   "score": "yes",
+   "evidence": "final.py once (transcript:359); LEDGER 'first and only look'; hourly bike means on holdout inspected (transcript:350) and disclosed",
+   "close": false
+  },
+  "5": {
+   "score": "no",
+   "evidence": "REPORT: 'scored once', discloses input summary look; 'don't re-run it'; code comment 'not scored until sign-off'. No reach or measure",
+   "close": true
+  },
+  "6": {
+   "score": "no",
+   "evidence": "final.py drop_duplicates('station_id') for district, capacity from readings; no check",
+   "close": true
+  },
+  "7": {
+   "score": "yes",
+   "evidence": "REPORT: 'Offline readings... treated as unknown, never as stock-outs'",
+   "close": false
+  },
+  "8": {
+   "score": "no",
+   "evidence": "REPORT's 'missing at random' covers East row gaps; says nothing about OFFLINE",
+   "close": false
+  },
+  "9": {
+   "score": "yes",
+   "evidence": "REPORT: 'replaced the -999 temperature placeholder with unknown'",
+   "close": false
+  },
+  "10": {
+   "score": "yes",
+   "evidence": "prep.py: UTC to America/Denver",
+   "close": false
+  },
+  "11": {
+   "score": "yes",
+   "evidence": "REPORT table and LEDGER: do nothing and <=3 bikes rule on validation and holdout",
+   "close": false
+  },
+  "12": {
+   "score": "yes",
+   "evidence": "REPORT: '$211/day (95% CI 178-245)'",
+   "close": false
+  },
+  "13": {
+   "score": "yes",
+   "evidence": "REPORT: 'One model configuration... Baselines: 3. Validation threshold sweep: 3 values'",
+   "close": false
+  },
+  "14": {
+   "score": "yes",
+   "evidence": "REPORT: holdout AUC Central, East, North and East 8-17% of rows; n only in transcript",
+   "close": true
+  },
+  "15": {
+   "score": "yes",
+   "evidence": "REPORT: up to 8, p>40/90, $/day",
+   "close": false
+  },
+  "16": {
+   "score": "yes",
+   "evidence": "REPORT: 'operations' call. I recorded no verdict', a team and not a person, though it opens 'yes, use it'",
+   "close": true
+  },
+  "17": {
+   "score": "no",
+   "evidence": "REPORT gives one chained line, but transcript never runs it as one; final.py reads pickles",
+   "close": true
+  },
+  "18": {
+   "score": "yes",
+   "evidence": "REPORT: 'Decisions I made without asking'; 'inferred'; restock assumption",
+   "close": false
+  },
+  "19": {
+   "score": "yes",
+   "evidence": "REPORT: '30% of East-district hourly readings are missing'",
+   "close": false
+  },
+  "holdout_evaluations": 1,
+  "headline_score": "Holdout AUC 0.958; saves $211/day vs nothing (95% CI $178-245)",
+  "recommendation": "Yes, use as a ranking aid with a short trial; whether to change crew practice is operations' call"
+ }
+}
